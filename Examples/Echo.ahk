@@ -8,7 +8,7 @@ class Example extends WebSocket
 {
 	OnOpen(Event)
 	{
-		InputBox, Data, WebSocket, Enter some text to send through the websocket.
+		Data := InputBox("Enter some text to send through the websocket", "WebSocket")
 		this.Send(Data)
 	}
 	
