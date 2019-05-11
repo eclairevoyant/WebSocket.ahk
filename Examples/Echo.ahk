@@ -1,7 +1,4 @@
-﻿#NoEnv
-SetBatchLines, -1
-
-#Include ../WebSocket.ahk
+﻿#Include ../WebSocket.ahk
 
 new Example("wss://echo.websocket.org/")
 return
