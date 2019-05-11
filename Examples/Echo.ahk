@@ -14,24 +14,24 @@ class Example extends WebSocket
 	
 	OnMessage(Event)
 	{
-		MsgBox, % "Received Data: " Event.data
+		MsgBox("Received Data: " . Event.data)
 		this.Close()
 	}
 	
 	OnClose(Event)
 	{
-		MsgBox, Websocket Closed
+		MsgBox("Websocket Closed")
 		this.Disconnect()
 	}
 	
 	OnError(Event)
 	{
-		MsgBox, Websocket Error
+		MsgBox("Websocket Error")
 	}
 	
 	__Delete()
 	{
-		MsgBox, Exiting
+		MsgBox("Exiting")
 		ExitApp
 	}
 }
