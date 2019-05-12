@@ -5,17 +5,15 @@
 		static wb
 		
 		; Create an IE instance
-		Gui, +hWndhOld
-		Gui, New, +hWndhWnd
-		this.hWnd := hWnd
-		Gui, Add, ActiveX, vWB, Shell.Explorer
-		Gui, %hOld%: Default
+		hOld := Gui.Hwnd
+		this.hWnd := GuiCreate()
+		Gui.AddActiveX("vWB", "Shell.Explorer")
 		
 		; Write an appropriate document
 		WB.Navigate("about:<!DOCTYPE html><meta http-equiv='X-UA-Compatible'"
 		. "content='IE=edge'><body></body>")
 		while (WB.ReadyState < 4)
-			sleep, 50
+			Sleep 50
 		this.document := WB.document
 		
 		; Add our handlers to the JavaScript namespace
@@ -58,7 +56,7 @@
 		if this.hWnd
 		{
 			this.Close()
-			Gui, % this.hWnd ": Destroy"
+			Gui.Destroy()
 			this.hWnd := False
 		}
 	}
